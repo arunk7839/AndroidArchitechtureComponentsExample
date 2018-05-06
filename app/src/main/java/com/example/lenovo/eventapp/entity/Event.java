@@ -3,11 +3,16 @@ package com.example.lenovo.eventapp.entity;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
+
+import com.example.lenovo.eventapp.db.DateConverter;
+
+import java.util.Date;
 
 import static com.example.lenovo.eventapp.entity.Event.TABLE_NAME;
 
 /**
- * Created by arun on 20-04-2018.
+ * Created by Arun on 01-05-2018.
  */
 
 @Entity(tableName = TABLE_NAME)
@@ -19,9 +24,11 @@ public class Event {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
+
     private String title;
     private String description;
-    private String date;
+    @TypeConverters(DateConverter.class)
+    private Date date;
 
     public Event() {
 
@@ -43,16 +50,17 @@ public class Event {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void setDescription(String description) {

@@ -9,21 +9,26 @@ import com.example.lenovo.eventapp.dao.EventDao;
 import com.example.lenovo.eventapp.entity.Event;
 
 /**
- * Created by arun on 20-04-2018.
+ * Created by Arun on 01-05-2018.
  */
-@Database(entities = {Event.class},version = 1)
-public abstract class EventDatabase extends RoomDatabase{
-        private static final String DB_NAME = "Event_Database.db";
-        private static EventDatabase INSTANCE;
-        public abstract EventDao eventDao();
 
-        public static EventDatabase getEventDatabase(Context context) {
-                if (INSTANCE == null) {
-                        INSTANCE = Room.databaseBuilder(context, EventDatabase.class, DB_NAME).build();
+@Database(entities = {Event.class}, version = 1)
+public abstract class EventDatabase extends RoomDatabase {
+    private static final String DB_NAME = "Event_Database.db";
+    private static EventDatabase INSTANCE;
 
-                }
-                return INSTANCE;
+
+    public static EventDatabase getEventDatabase(Context context) {
+        if (INSTANCE == null) {
+            INSTANCE = Room.databaseBuilder(context, EventDatabase.class, DB_NAME).build();
+
         }
+        return INSTANCE;
+    }
 
+    public static void destroyInstance() {
+        INSTANCE = null;
+    }
 
+    public abstract EventDao eventDao();
 }

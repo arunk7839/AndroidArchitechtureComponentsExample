@@ -12,7 +12,7 @@ import com.example.lenovo.eventapp.entity.Event;
 import java.util.List;
 
 /**
- * Created by arun on 20-04-2018.
+ * Created by Arun on 01-05-2018.
  */
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewHolder> {
@@ -54,7 +54,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
         Event item = items.get(position);
         holder.titleTextView.setText(item.getTitle());
         holder.descriptionTextView.setText(item.getDescription());
-        holder.dateTextView.setText(item.getDate());
+        holder.dateTextView.setText(item.getDate().toLocaleString().substring(0, 12));
     }
 
 

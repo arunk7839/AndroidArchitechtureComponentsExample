@@ -27,7 +27,7 @@
             android:layout_marginTop="6dp"
             android:fontFamily="sans-serif"
             android:textColor="@android:color/holo_green_light"
-            android:textSize="20dp" />
+            android:textSize="16dp" />
     </LinearLayout>
 
 
@@ -38,7 +38,7 @@
         android:layout_alignParentRight="true"
         android:fontFamily="sans-serif"
         android:textColor="@color/colorAccent"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textStyle="bold" />
 
 
